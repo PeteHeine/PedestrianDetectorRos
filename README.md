@@ -1,5 +1,5 @@
 # ROS C++ implementation of Piotr Dollar's pedestrian detector
-The C++ code is based on the great MATLAB toolbox by Piotr Dollar [here](https://pdollar.github.io/toolbox/).
+The C++ code is based on the great MATLAB toolbox by Piotr Dollar [here](https://pdollar.github.io/toolbox/) or on the [github](https://github.com/pdollar/toolbox) (recommended)
 
 # Setting up MATIO (matlab input/output interface)
 	- Download it: http://sourceforge.net/projects/matio/
