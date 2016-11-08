@@ -90,7 +90,7 @@ class MyNode {
 public:
 	MyNode() :
 			nh("~"), it(nh) {
-		//ROS_ERROR("NodeBeingCreated");
+		ROS_ERROR("NodeBeingCreated");
 		nh.param<double>("FOV_verticalDeg",FOV_verticalDeg,47.0);
 		nh.param<double>("FOV_horizontal",FOV_horizontal,83.0);
 		nh.param<double>("angleTiltDegrees",angleTiltDegrees,7.0);
@@ -100,7 +100,7 @@ public:
 		nh.param<std::string>("model_dir",model_dir,"model");
 		vector<string> strParts;
 		boost::split(strParts,topic_name,boost::is_any_of("/"));
-		//ROS_ERROR("%s\n",model_dir.c_str());
+		ROS_ERROR("%s\n",model_dir.c_str());
 		//cam_pub = it.advertiseCamera("imageWithBBox", 1);
 		cam_pub = it.advertise("imageWithBBox", 1);
 
@@ -130,12 +130,12 @@ public:
 		else {
 			model_dir = "pedmodels/LdcfInriaDetector.mat";
 		}*/ 
-
+		ROS_ERROR("JustBeforeModelLoad");
 		oPedDetector = new PedestrianDetector(model_dir);
 		oPedDetector->setCameraSetup(FOV_verticalDeg, FOV_horizontal,
 					angleTiltDegrees, cameraHeight);
 
-		//ROS_ERROR("NodeHasBeenCreated");
+		ROS_ERROR("NodeHasBeenCreated");
 
 
 	}
@@ -150,7 +150,7 @@ public:
 		// do all the stuff here
 		//ROS_ERROR("GOT Image");
 		//convert  image to opencv
-		//ROS_ERROR("ImageHasBeenReceived"); 
+		ROS_ERROR("ImageHasBeenReceived"); 
 		cv_bridge::CvImagePtr cv_ptr;
 		try {
 			cv_ptr = cv_bridge::toCvCopy(msg,
